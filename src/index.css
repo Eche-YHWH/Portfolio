@@ -758,6 +758,142 @@ a {
   color: var(--ink);
 }
 
+.experience-section {
+  padding-top: clamp(4rem, 9vw, 6.5rem);
+}
+
+.experience-header {
+  text-align: center;
+  margin-bottom: clamp(2.5rem, 5vw, 3.5rem);
+}
+
+.experience-header h2 {
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  margin: 0;
+}
+
+.experience-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  border-top: 1px solid rgba(21, 18, 15, 0.08);
+}
+
+.experience-row {
+  display: grid;
+  grid-template-columns: minmax(140px, 1fr) minmax(200px, 1.4fr) minmax(140px, 1fr) auto;
+  gap: clamp(1rem, 2vw, 2rem);
+  padding: clamp(1.25rem, 2vw, 1.6rem) clamp(1.2rem, 2.5vw, 1.8rem);
+  border-bottom: 1px solid rgba(21, 18, 15, 0.08);
+  align-items: start;
+  background: transparent;
+  transition: background 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease, border 0.25s ease;
+  position: relative;
+}
+
+.experience-row:hover,
+.experience-row.is-open {
+  background: white;
+  border: 1px solid rgba(21, 18, 15, 0.08);
+  border-radius: 24px;
+  box-shadow: 0 20px 50px rgba(20, 18, 16, 0.12);
+  transform: translateY(-2px);
+}
+
+.experience-period {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  font-weight: 600;
+}
+
+.experience-dates {
+  font-size: 1rem;
+  color: var(--ink);
+}
+
+.experience-duration {
+  font-size: 0.9rem;
+  color: var(--muted);
+  font-weight: 500;
+}
+
+.experience-role {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.experience-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.experience-summary {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.6;
+  font-size: 0.95rem;
+  max-width: 520px;
+}
+
+.experience-details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.experience-points {
+  margin: 0;
+  padding-left: 1.1rem;
+  color: var(--muted);
+  font-size: 0.92rem;
+  line-height: 1.6;
+  list-style: disc;
+}
+
+.experience-points li + li {
+  margin-top: 0.4rem;
+}
+
+.experience-company {
+  font-size: 1rem;
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.experience-toggle {
+  border: none;
+  background: transparent;
+  color: var(--muted);
+  font-size: 1.6rem;
+  line-height: 1;
+  cursor: pointer;
+  padding: 0;
+}
+
+.experience-cta {
+  display: flex;
+  justify-content: center;
+  margin-top: 2.5rem;
+}
+
+@media (max-width: 900px) {
+  .experience-row {
+    grid-template-columns: 1fr auto;
+  }
+
+  .experience-role,
+  .experience-company {
+    grid-column: 1 / -1;
+  }
+
+  .experience-summary {
+    max-width: 100%;
+  }
+}
+
 .testimonial-section {
   padding-top: clamp(4rem, 10vw, 7rem);
 }

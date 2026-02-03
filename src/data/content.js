@@ -126,9 +126,12 @@ export const content = {
   experience: [
     {
       period: "Aug 2022 - Present",
+      duration: "2 Years and 5 months",
       title: "Marketing Lead",
       company: "KiaKia Finance Limited",
       location: "Lagos",
+      summary:
+        "Managed a small team to deliver growth campaigns, partner onboarding, and reporting systems that kept performance on track.",
       points: [
         "Led brand refresh and marketing collateral for local and international markets",
         "Managed budgets, partnerships, loyalty programs, and channel performance",
@@ -139,9 +142,12 @@ export const content = {
     },
     {
       period: "Dec 2024 - Apr 2025",
+      duration: "5 months",
       title: "Lead Integrator - Stakeholder Management",
       company: "Launch to Wealth TV (YouTube Channel)",
       location: "Lagos",
+      summary:
+        "Owned stakeholder updates and performance analysis to improve retention, conversion, and content strategy.",
       points: [
         "Researched viral content strategy and supported execution",
         "Helped improve retention and subscriber conversion with analytics",
@@ -150,9 +156,12 @@ export const content = {
     },
     {
       period: "Aug 2022 - Mar 2023",
+      duration: "8 months",
       title: "3D Animation Facilitator (Contract)",
       company: "The Learning Place",
       location: "Lagos",
+      summary:
+        "Built a learning path and taught 3D animation basics to intermediate learners using Blender.",
       points: [
         "Built curriculum for basic to intermediate 3D animation",
         "Delivered training using Blender for learners",
@@ -160,9 +169,12 @@ export const content = {
     },
     {
       period: "Jul 2021 - Oct 2021",
+      duration: "4 months",
       title: "Marketing Communications and Design Intern (Contract)",
       company: "WAVE Academies",
       location: "Lagos",
+      summary:
+        "Produced branded assets and supported marketing initiatives across internal teams.",
       points: [
         "Created branded social media content and logos",
         "Supported visual work across business units",
@@ -170,9 +182,12 @@ export const content = {
     },
     {
       period: "Aug 2019 - Oct 2019",
+      duration: "3 months",
       title: "Graphics Design Intern (Contract)",
       company: "Swipha Pharmaceutical",
       location: "Lagos",
+      summary:
+        "Designed print collateral and supported user surveys to improve product communication.",
       points: [
         "Designed print collateral for product campaigns",
         "Supported customer surveys to improve product offerings",

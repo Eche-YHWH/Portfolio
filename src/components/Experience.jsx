@@ -1,48 +1,76 @@
+import { useState } from "react";
 import Container from "./Container";
-import SectionHeader from "./SectionHeader";
 import { content } from "../data/content";
 
 export default function Experience() {
-  return (
-    <section id="experience" className="section">
-      <SectionHeader
-        title="Recent experience"
-        subtitle="Roles and scope from my CV."
-      />
+  const [activeIndex, setActiveIndex] = useState(0);
 
+  return (
+    <section id="experience" className="section experience-section">
       <Container>
-        <div className="space-y-6">
-          {content.experience.map((e, idx) => (
-            <div
-              key={`${e.company}-${e.period}`}
-              className="card card-hover p-6 reveal"
-              data-reveal
-              style={{ "--delay": `${idx * 0.08}s` }}
-            >
-              <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
-                <div>
-                  <p className="eyebrow">{e.period}</p>
-                  <h3 className="mt-2 text-lg font-semibold">
-                    {e.title} | {e.company}
-                  </h3>
-                  <p className="mt-1 text-sm text-muted">{e.location}</p>
+        <div className="experience-header reveal" data-reveal>
+          <h2 className="font-display">Recent experience</h2>
+        </div>
+
+        <div className="experience-list">
+          {content.experience.map((e, idx) => {
+            const isOpen = activeIndex === idx;
+            const summary = e.summary;
+            return (
+              <div
+                key={`${e.company}-${e.period}`}
+                className={`experience-row ${isOpen ? "is-open" : ""}`}
+              >
+                <div className="experience-period">
+                  <span className="experience-dates">{e.period}</span>
+                  {e.duration ? (
+                    <span className="experience-duration">{e.duration}</span>
+                  ) : null}
                 </div>
 
-                <a className="btn btn-outline w-fit" href="#contact">
-                  Request full CV
-                </a>
-              </div>
+                <div className="experience-role">
+                  <span className="experience-title">{e.title}</span>
+                  {isOpen ? (
+                    <div className="experience-details">
+                      {summary ? (
+                        <p className="experience-summary">{summary}</p>
+                      ) : null}
+                      {e.points?.length ? (
+                        <ul className="experience-points">
+                          {e.points.map((point) => (
+                            <li key={point}>{point}</li>
+                          ))}
+                        </ul>
+                      ) : null}
+                    </div>
+                  ) : null}
+                </div>
 
-              <ul className="mt-4 space-y-2 text-sm text-muted">
-                {e.points.map((p) => (
-                  <li key={p} className="flex gap-2">
-                    <span className="mt-1 inline-block h-1.5 w-1.5 rounded-full bg-[var(--accent)]" />
-                    <span>{p}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
+                <div className="experience-company">{e.company}</div>
+
+                <button
+                  type="button"
+                  className="experience-toggle"
+                  aria-expanded={isOpen}
+                  aria-label={isOpen ? "Collapse details" : "Expand details"}
+                  onClick={() => setActiveIndex(idx)}
+                >
+                  {isOpen ? "—" : "+"}
+                </button>
+              </div>
+            );
+          })}
+        </div>
+
+        <div className="experience-cta">
+          <a
+            className="btn btn-solid"
+            href="https://drive.google.com/file/d/1TfkMefPg2MmyqctZO05BcAgze50QuQfY/view?usp=sharing"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Download CV
+          </a>
         </div>
       </Container>
     </section>
