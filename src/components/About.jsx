@@ -1,44 +1,52 @@
 import Container from "./Container";
-import SectionHeader from "./SectionHeader";
 import { content } from "../data/content";
+import avatarImg from "../assets/Avatar.jpg";
+import { RefreshCCWIcon } from "./ui/refresh-ccw";
+import { WorkflowIcon } from "./ui/workflow";
+import { MapPinIcon } from "./ui/map-pin";
 
 export default function About() {
-  return (
-    <section id="about" className="section">
-      <SectionHeader title={content.about.title} subtitle={content.about.body[0]} />
+  const aboutStatement = content.about.body.join(" ");
+  const aboutChars = Array.from(aboutStatement);
+  const detailItems = [
+    { label: content.about.bullets[0], Icon: RefreshCCWIcon },
+    { label: content.about.bullets[1], Icon: WorkflowIcon },
+    { label: content.about.bullets[2], Icon: MapPinIcon },
+  ];
 
+  return (
+    <section id="about" className="section about-section">
       <Container>
-        <div className="grid gap-6 lg:grid-cols-12">
-          <div className="lg:col-span-7 space-y-4 text-muted reveal" data-reveal>
-            <p className="spaced-copy">{content.about.body[0]}</p>
-            <div className="flex flex-wrap gap-2">
-              {content.about.bullets.slice(0, 3).map((b) => (
-                <span key={b} className="pill text-ghost">
-                  {b}
-                </span>
-              ))}
+        <div className="about-stack">
+          <div className="about-profile reveal" data-reveal>
+            <div className="about-avatar">
+              <img src={avatarImg} alt={content.person.name} />
             </div>
-            {content.about.body.slice(1).map((p) => (
-              <p key={p}>{p}</p>
-            ))}
+            <div>
+              <p className="about-name">{content.person.name}</p>
+              <p className="about-role">{content.person.role}</p>
+            </div>
           </div>
 
-          <div className="lg:col-span-5">
-            <div
-              className="card card-hover p-6 reveal"
-              data-reveal
-              style={{ "--delay": "0.1s" }}
-            >
-              <p className="eyebrow">What I do</p>
-              <ul className="mt-5 space-y-2 text-sm text-muted">
-                {content.about.bullets.map((b) => (
-                  <li key={b} className="flex gap-2">
-                    <span className="mt-1 inline-block h-1.5 w-1.5 rounded-full bg-[var(--accent)]" />
-                    <span>{b}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
+          <h2 className="about-title font-display" data-fill-text>
+            {aboutChars.map((char, idx) => (
+              <span key={`${char}-${idx}`} className="fill-char" data-fill-char>
+                {char}
+              </span>
+            ))}
+          </h2>
+
+          <a href="#contact" className="btn btn-accent about-cta">
+            Let's talk!
+          </a>
+
+          <div className="about-details">
+            {detailItems.map(({ label, Icon }) => (
+              <div key={label} className="about-pill">
+                <Icon className="about-icon" size={20} aria-hidden="true" />
+                <span>{label}</span>
+              </div>
+            ))}
           </div>
         </div>
       </Container>

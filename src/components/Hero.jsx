@@ -1,49 +1,15 @@
 import Container from "./Container";
 import { content } from "../data/content";
 import avatarImg from "../assets/Avatar.jpg";
-import visorImg from "../assets/hero-visor.png";
-import magnifierImg from "../assets/hero-magnifier.png";
-import pinImg from "../assets/hero-pin.png";
 
 export default function Hero() {
   const emphasisWords = new Set(["products", "partnerships", "execution"]);
   const headlineParts = content.hero.headline.split(/(\b\w+\b)/);
-  const heroAssets = [
-    {
-      src: visorImg,
-      alt: "3D visor",
-      className: "asset-visor",
-      style: { "--float-delay": "0s", "--float-duration": "13s" },
-    },
-    {
-      src: magnifierImg,
-      alt: "3D magnifier",
-      className: "asset-magnifier",
-      style: { "--float-delay": "1.4s", "--float-duration": "15s" },
-    },
-    {
-      src: pinImg,
-      alt: "3D location pin",
-      className: "asset-pin",
-      style: { "--float-delay": "0.6s", "--float-duration": "12s" },
-    },
-  ];
-
   const brandItems = ["Amara", "Treva", "Foxhub", "Openlane", "North"];
 
   return (
     <section id="top" className="hero-section">
       <div className="hero-stage">
-        {heroAssets.map((asset) => (
-          <img
-            key={asset.src}
-            className={`hero-asset ${asset.className}`}
-            src={asset.src}
-            alt={asset.alt}
-            style={asset.style}
-          />
-        ))}
-
         <a className="hero-chip chip-follow" href={content.person.linkedinHref}>
           <span className="chip-label">Drop me a follow</span>
           <span className="chip-icons" aria-hidden="true">
@@ -62,8 +28,25 @@ export default function Hero() {
           </span>
         </a>
         <span className="hero-chip chip-location">{content.person.location}</span>
-        <span className="hero-chip chip-scroll">Scroll</span>
-        <span className="hero-chip chip-work">Check my work</span>
+        <a className="hero-chip chip-scroll chip-action" href="#about">
+          <span className="chip-text">Scroll</span>
+          <span className="chip-cursor" aria-hidden="true">
+            <svg viewBox="0 0 24 24" focusable="false" aria-hidden="true">
+              <path d="M3 3l7.07 16.97 2.51-7.39 7.39-2.51L3 3z" />
+            </svg>
+          </span>
+        </a>
+        <a className="hero-chip chip-work chip-action" href="#works">
+          <span className="chip-text">
+            <span className="chip-text-default">Check my work</span>
+            <span className="chip-text-hover">Click me</span>
+          </span>
+          <span className="chip-cursor" aria-hidden="true">
+            <svg viewBox="0 0 24 24" focusable="false" aria-hidden="true">
+              <path d="M3 3l7.07 16.97 2.51-7.39 7.39-2.51L3 3z" />
+            </svg>
+          </span>
+        </a>
 
         <Container>
           <div className="hero-center reveal" data-reveal>
@@ -74,6 +57,10 @@ export default function Hero() {
               <div>
                 <p className="hero-name">{content.person.name}</p>
                 <p className="hero-role">{content.person.role}</p>
+                <div className="hero-availability">
+                  <span className="status-dot" aria-hidden="true" />
+                  <span>Available for work</span>
+                </div>
               </div>
             </div>
 

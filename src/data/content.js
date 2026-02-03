@@ -1,7 +1,7 @@
 export const content = {
   person: {
     name: "Eche Francis Ikpati",
-    role: "Growth, Marketing, Partnerships",
+    role: "Growth, Marketing, Partnerships, Branding",
     email: "Franciseche9@gmail.com",
     phone: "07025808994",
     linkedinLabel: "LinkedIn",
@@ -90,39 +90,36 @@ export const content = {
   about: {
     title: "About",
     body: [
-      "I am a growth and marketing lead with strong experience in fintech, media, and e-commerce.",
-      "I like work that mixes creative execution with clear measurement, so teams can see what is working and why.",
-      "I have led partner onboarding, campaign execution, and reporting workflows that support product growth.",
+      "I build growth and partnership systems that turn strategy into measurable adoption.",
+      "My work blends clear execution with reporting so teams can see what is working, fast.",
     ],
     bullets: [
-      "Partner onboarding and relationship management",
-      "Campaign analysis and reporting (Python, Google Analytics)",
-      "Paid social, email, push notifications, SEO",
+      "Growth + partnerships lead",
+      "Fintech and media experience",
+      "Based in Lagos, Nigeria",
       "Creative tools: Adobe Suite, Figma, Blender",
       "Automation: Mautic, Zoho tools, Meta Business Suite",
     ],
   },
 
   testimonials: [
-    // Your CV does not include testimonials, so these are safe placeholders.
-    // Replace with real quotes when you have them.
     {
-      quote:
-        "Eche is strong at moving from strategy to execution, and he follows through with clean reporting.",
-      name: "Placeholder Name",
-      title: "Role, Company",
+      headline: "Strategy that turns into measurable results.",
+      body: "Eche keeps plans grounded in execution and makes performance easy to track.",
+      name: "Liam P",
+      title: "UX Researcher",
     },
     {
-      quote:
-        "Clear communication, strong ownership, and good judgment when priorities shift.",
-      name: "Placeholder Name",
-      title: "Role, Company",
+      headline: "Reliable, fast, and clear in execution.",
+      body: "Great communication and steady ownership even when priorities shift.",
+      name: "Liam P",
+      title: "UX Researcher",
     },
     {
-      quote:
-        "Great balance of creative work and performance thinking.",
-      name: "Placeholder Name",
-      title: "Role, Company",
+      headline: "Balances creative work with performance thinking.",
+      body: "Always connects design and messaging to real outcomes and growth.",
+      name: "Liam P",
+      title: "UX Researcher",
     },
   ],
 

@@ -1,6 +1,8 @@
 import { useState } from "react";
 import Container from "./Container";
 import { content } from "../data/content";
+import { MenuIcon } from "./ui/menu";
+import { XIcon } from "./ui/x";
 
 const links = [
   { label: "Works", href: "#works" },
@@ -16,12 +18,12 @@ export default function Navbar() {
 
   return (
     <header className="fixed top-0 z-50 w-full border-b border-black/10 bg-[rgba(255,249,242,0.86)] backdrop-blur">
-      <Container className="flex h-20 items-center justify-between gap-4">
+      <Container className="flex h-20 items-center justify-between gap-4 md:grid md:grid-cols-[1fr_auto_1fr] md:justify-between">
         <a href="#top" className="signature tracking-tight">
           {content.person.name}
         </a>
 
-        <nav className="hidden items-center gap-6 rounded-full border border-black/10 bg-white/80 px-6 py-2 text-sm text-ghost shadow-[0_12px_30px_rgba(20,18,16,0.08)] md:flex">
+        <nav className="hidden items-center gap-6 rounded-full border border-black/10 bg-white/80 px-6 py-2 text-sm text-ghost shadow-[0_12px_30px_rgba(20,18,16,0.08)] md:flex md:justify-self-center">
           {links.map((l) => (
             <a
               key={l.href}
@@ -33,21 +35,26 @@ export default function Navbar() {
           ))}
         </nav>
 
-        <a href="#contact" className="btn btn-solid hidden md:inline-flex">
-          Let's connect
-        </a>
+        <div className="flex items-center justify-end gap-3 md:justify-self-end">
+          <a href="#contact" className="btn btn-solid desktop-only">
+            Let's connect
+          </a>
 
-        <button
-          type="button"
-          className={`hamburger md:hidden ${menuOpen ? "is-open" : ""}`}
-          aria-label="Toggle navigation menu"
-          aria-expanded={menuOpen}
-          aria-controls="mobile-menu"
-          onClick={() => setMenuOpen((prev) => !prev)}
-        >
-          <span />
-          <span />
-        </button>
+          <button
+            type="button"
+            className={`hamburger md:hidden ${menuOpen ? "is-open" : ""}`}
+            aria-label="Toggle navigation menu"
+            aria-expanded={menuOpen}
+            aria-controls="mobile-menu"
+            onClick={() => setMenuOpen((prev) => !prev)}
+          >
+            {menuOpen ? (
+              <XIcon className="hamburger-icon" size={26} />
+            ) : (
+              <MenuIcon className="hamburger-icon" size={26} />
+            )}
+          </button>
+        </div>
       </Container>
 
       <div id="mobile-menu" className={`mobile-menu ${menuOpen ? "is-open" : ""}`}>
